@@ -1,0 +1,121 @@
+<html>
+    <head>
+<script type="text/javascript" src="C:\Users\user\Desktop\almond - 복사본\proccesing.js"></script>
+    </head>
+    <body>
+      <script type="text/processing">
+        
+        int x=300;
+int y=300;
+int k=20;
+int a,b,vx,vy;
+PFont zigBlack;
+
+void setup(){
+   size(600,600);
+   frameRate(60);
+   zigBlack=loadFont("LucidaBright-12.vlw");
+   textFont(zigBlack);
+}
+
+void draw(){
+   background(255,240,240);
+   
+   face();
+   move();
+   kusu();
+   println(dist(x,y,a,b));  
+
+}
+
+void kusu(){
+ fill(0,255,30,200);
+ noStroke();
+ rect(mouseX-10,mouseY,20,30);
+ arc(mouseX,mouseY,20,20,radians(180),radians(360));
+ rect(mouseX-4,mouseY-30,8,30);
+ fill(255);
+ rect(mouseX-10,mouseY+5,20,15);
+
+}
+
+void face(){
+  if(dist(x,y,a,b)>=30){
+   noStroke();
+   fill(240,190,190,255);
+   triangle(x-30,y,x-25,y-30,x,y-10);
+   triangle(x,y-10,x+25,y-30,x+30,y);
+   
+   fill(240,170,180,255);
+   ellipse(x,y,60,40);
+   
+   fill(240,200,210,255);
+   ellipse(x,y+5,20,10);
+   
+   fill(0);
+   ellipse(x-10,y-10,3,4);
+   ellipse(x+10,y-10,3,4);
+   
+   stroke(1);
+   line(x-5,y+3,x-5,y+7);
+   line(x+5,y+3,x+5,y+7);
+    }
+  else{
+   noStroke();
+   fill(240,190,190,255);
+   triangle(x-30,y,x-25,y-30,x,y-10);
+   triangle(x,y-10,x+25,y-30,x+30,y);
+   
+   fill(240,170,180,255);
+   ellipse(x,y,60,40);
+   
+   fill(240,200,210,255);
+   ellipse(x,y+5,20,10);
+   
+   fill(255,100,100,150);
+   ellipse(x-20,y+5,14,6);
+   ellipse(x+20,y+5,14,6);
+   
+   fill(0);
+   ellipse(x-10,y-10,3,4);
+   stroke(1);
+   line(x+10,y-8,x+15,y-6);
+   line(x+10,y-8,x+15,y-10);
+   
+   line(x-5,y+3,x-5,y+7);
+   line(x+5,y+3,x+5,y+7);
+   
+   stroke(255,0,0);
+   noFill();
+   arc(x,y+5,25,17,radians(30),radians(150),OPEN);
+   
+  
+   fill(255);
+   stroke(255);
+   rect(x+17,y-55,65,15);
+   
+   fill(0);
+   text("HI FRIEND",x+20,y-40);
+  
+   println("hi");
+   noLoop();
+   } 
+}
+
+void move(){
+   x=x+vx;
+   y=y+vy;
+}
+
+void mouseDragged(){
+   loop();
+   a=mouseX;
+   b=mouseY;
+   vx=(a-x)/k;
+   vy=(b-y)/k;
+}
+         
+    </script>
+    <canvas id="sketch"style="border: 1px solid black;"></canvas>
+    </body>
+</html>
